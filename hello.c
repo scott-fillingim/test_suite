@@ -1,9 +1,9 @@
 #include <stdio.h>
 #include <math.h>
 
-void main ( void )
+int main ( void )
 {
-   printf("%s(): Hello World");
+   printf("%s(): Hello World", __func__);
 
    return 1;
 }
