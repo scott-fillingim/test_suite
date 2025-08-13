@@ -3,7 +3,8 @@
 
 int main ( void )
 {
-   printf("%s(): Hello World", __func__);
+   printf("%s(): Hello World\n", __func__);
 
+   printf("Changed Username");
    return 1;
 }
