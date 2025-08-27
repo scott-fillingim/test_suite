@@ -1,0 +1,454 @@
+fillingim@SEMPRE-fillingim:~$ cd git/os/qemux/
+fillingim@SEMPRE-fillingim:~/git/os/qemux$ ls
+bitbake-cookerdaemon.log  cache  conf  downloads  sstate-cache  tmp
+fillingim@SEMPRE-fillingim:~/git/os/qemux$ vim conf/local.conf
+fillingim@SEMPRE-fillingim:~/git/os/qemux$
+fillingim@SEMPRE-fillingim:~/git/os/qemux$
+fillingim@SEMPRE-fillingim:~/git/os/qemux$ ls
+bitbake-cookerdaemon.log  cache  conf  downloads  sstate-cache  tmp
+fillingim@SEMPRE-fillingim:~/git/os/qemux$ rm -rf tmp/
+fillingim@SEMPRE-fillingim:~/git/os/qemux$
+fillingim@SEMPRE-fillingim:~/git/os/qemux$
+fillingim@SEMPRE-fillingim:~/git/os/qemux$
+fillingim@SEMPRE-fillingim:~/git/os/qemux$ time bitbake core-image-base
+Loading cache: 100% |                                                                                                                           | ETA:  --:--:--
+Loaded 0 entries from dependency cache.
+Parsing recipes: 100% |##########################################################################################################################| Time: 0:00:34
+Parsing of 2617 .bb files complete (0 cached, 2617 parsed). 4671 targets, 112 skipped, 0 masked, 0 errors.
+NOTE: Resolving any missing task queue dependencies
+
+Build Configuration:
+BB_VERSION           = "2.15.2"
+BUILD_SYS            = "x86_64-linux"
+NATIVELSBSTRING      = "ubuntu-24.04"
+TARGET_SYS           = "x86_64-poky-linux"
+MACHINE              = "qemux86-64"
+DISTRO               = "poky"
+DISTRO_VERSION       = "5.2.99+snapshot-e7423ae09e62a1f5f72391e61cad2381f917c113"
+TUNE_FEATURES        = "m64 x86-64-v3"
+TARGET_FPU           = ""
+meta
+meta-poky
+meta-yocto-bsp       = "master:e7423ae09e62a1f5f72391e61cad2381f917c113"
+meta-oe
+meta-python          = "master:ab5cd440b38f704bd45fd5b9944158c0f2fd35c8"
+
+Sstate summary: Wanted 3357 Local 3353 Mirrors 0 Missed 4 Current 0 (99% match, 0% complete)########################################             | ETA:  0:00:00
+Initialising tasks: 100% |#######################################################################################################################| Time: 0:00:02
+NOTE: Executing Tasks
+NOTE: Tasks Summary: Attempted 6948 tasks of which 6934 didn't need to be rerun and all succeeded.
+
+real    2m41.367s
+user    0m3.699s
+sys     0m1.046s
+fillingim@SEMPRE-fillingim:~/git/os/qemux$
+fillingim@SEMPRE-fillingim:~/git/os/qemux$
+fillingim@SEMPRE-fillingim:~/git/os/qemux$ runqmux ./
+bitbake-cookerdaemon.log  cache/                    conf/                     downloads/                sstate-cache/             tmp/
+fillingim@SEMPRE-fillingim:~/git/os/qemux$ runqmux ./tmp/
+abi_version          cache/               hosttools/           pkgdata/             sstate-control/      sysroots-components/ work/
+buildstats/          deploy/              log/                 saved_tmpdir         stamps/              sysroots-uninative/  work-shared/
+fillingim@SEMPRE-fillingim:~/git/os/qemux$ runqmux ./tmp/deploy/images/qemux86-64/
+bzImage                                                                       core-image-base-qemux86-64.rootfs.ext4.zst
+bzImage--6.12.41+git0+57f788e849_4137e9dd62-r0-qemux86-64-20250822145438.bin  core-image-base-qemux86-64.rootfs.manifest
+bzImage-qemux86-64.bin                                                        core-image-base-qemux86-64.rootfs.qemuboot.conf
+core-image-base-qemux86-64.rootfs-20250825182847.spdx.json                    core-image-base-qemux86-64.rootfs.spdx.json
+core-image-base-qemux86-64.rootfs-20250827142738.ext4.zst                     core-image-base-qemux86-64.rootfs.tar.zst
+core-image-base-qemux86-64.rootfs-20250827142738.manifest                     core-image-base-qemux86-64.rootfs.testdata.json
+core-image-base-qemux86-64.rootfs-20250827142738.qemuboot.conf                modules--6.12.41+git0+57f788e849_4137e9dd62-r0-qemux86-64-20250822145438.tgz
+core-image-base-qemux86-64.rootfs-20250827142738.tar.zst                      modules-qemux86-64.tgz
+core-image-base-qemux86-64.rootfs-20250827142738.testdata.json
+fillingim@SEMPRE-fillingim:~/git/os/qemux$ runqmux ./tmp/deploy/images/qemux86-64/core-image-base-qemux86-64.rootfs-20250827142738.ext4.zst
+runqmux: command not found
+fillingim@SEMPRE-fillingim:~/git/os/qemux$ runqemu snapshot ./tmp/deploy/images/qemux86-64/core-image-base-qemux86-64.rootfs-20250827142738.ext4.zst
+runqemu: command not found
+fillingim@SEMPRE-fillingim:~/git/os/qemux$ runqemu
+runqemu: command not found
+fillingim@SEMPRE-fillingim:~/git/os/qemux$ find . -iname runqemu
+fillingim@SEMPRE-fillingim:~/git/os/qemux$ cd ../
+fillingim@SEMPRE-fillingim:~/git/os$ rm -rf qemux/
+fillingim@SEMPRE-fillingim:~/git/os$ mkdir qemux
+fillingim@SEMPRE-fillingim:~/git/os$ cd qemux/
+fillingim@SEMPRE-fillingim:~/git/os/qemux$ ls
+fillingim@SEMPRE-fillingim:~/git/os/qemux$ cd ../
+fillingim@SEMPRE-fillingim:~/git/os$ rm -rf qemux/
+fillingim@SEMPRE-fillingim:~/git/os$
+fillingim@SEMPRE-fillingim:~/git/os$
+fillingim@SEMPRE-fillingim:~/git/os$ ./poky/oe-init-build-env qemux
+Error: /home/fillingim/git/os/oe-init-build-env doesn't exist!
+Please run this script in oe-init-build-env's directory.
+fillingim@SEMPRE-fillingim:~/git/os$ source ./poky/oe-init-build-env qemux
+You had no conf/local.conf file. This configuration file has therefore been
+created for you from /home/fillingim/git/os/poky/meta-poky/conf/templates/default/local.conf.sample
+You may wish to edit it to, for example, select a different MACHINE (target
+hardware).
+
+You had no conf/bblayers.conf file. This configuration file has therefore been
+created for you from /home/fillingim/git/os/poky/meta-poky/conf/templates/default/bblayers.conf.sample
+To add additional metadata layers into your configuration please add entries
+to conf/bblayers.conf.
+
+The Yocto Project has extensive documentation about OE including a reference
+manual which can be found at:
+    https://docs.yoctoproject.org
+
+For more information about OpenEmbedded see the website:
+    https://www.openembedded.org/
+
+This is the default build configuration for the Poky reference distribution.
+
+### Shell environment set up for builds. ###
+
+You can now run 'bitbake <target>'
+
+Common targets are:
+    core-image-minimal
+    core-image-full-cmdline
+    core-image-sato
+    core-image-weston
+    meta-toolchain
+    meta-ide-support
+
+You can also run generated qemu images with a command like 'runqemu qemux86-64'.
+
+Other commonly useful commands are:
+ - 'devtool' and 'recipetool' handle common recipe tasks
+ - 'bitbake-layers' handles common layer tasks
+ - 'oe-pkgdata-util' handles common target package tasks
+fillingim@SEMPRE-fillingim:~/git/os/qemux$
+fillingim@SEMPRE-fillingim:~/git/os/qemux$
+fillingim@SEMPRE-fillingim:~/git/os/qemux$ echo $PATH |grep bin
+/home/fillingim/git/os/poky/scripts:/home/fillingim/git/os/poky/bitbake/bin:/home/fillingim/git/bitbake/bin:/home/fillingim/altera_pro/25.1.1/quartus/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Program Files/Python313/Scripts/:/mnt/c/Program Files/Python313/:/mnt/c/Python313/Scripts/:/mnt/c/Python313/:/mnt/c/windows/system32:/mnt/c/windows:/mnt/c/windows/System32/Wbem:/mnt/c/windows/System32/WindowsPowerShell/v1.0/:/mnt/c/windows/System32/OpenSSH/:/mnt/c/Program Files/dotnet/:/mnt/c/Program Files/PuTTY/:/mnt/c/Users/ScottFillingim/AppData/Local/Microsoft/WindowsApps:/mnt/c/intelFPGA_standard/24.1std/questa_fse/win64:/mnt/c/intelFPGA_standard/24.1std/questa_fe/win64:/mnt/c/Users/ScottFillingim/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/msys64/usr/bin:/mnt/c/MinGW/bin:/mnt/c/Users/ScottFillingim/git:/mnt/c/Python313:/mnt/c/intelFPGA_standard/24.1std/quartus/bin64:/snap/bin
+fillingim@SEMPRE-fillingim:~/git/os/qemux$
+fillingim@SEMPRE-fillingim:~/git/os/qemux$
+fillingim@SEMPRE-fillingim:~/git/os/qemux$
+fillingim@SEMPRE-fillingim:~/git/os/qemux$ ls
+conf
+fillingim@SEMPRE-fillingim:~/git/os/qemux$ vim conf/bblayers.conf
+fillingim@SEMPRE-fillingim:~/git/os/qemux$
+fillingim@SEMPRE-fillingim:~/git/os/qemux$
+fillingim@SEMPRE-fillingim:~/git/os/qemux$ time bitbake core-image-base
+WARNING: You are running bitbake under WSLv2, this works properly but you should optimize your VHDX file eventually to avoid running out of storage space
+Loading cache: 100% |                                                                                                                                                                 | ETA:  --:--:--
+Loaded 0 entries from dependency cache.
+Parsing recipes: 100% |################################################################################################################################################################| Time: 0:00:12
+Parsing of 943 .bb files complete (0 cached, 943 parsed). 1938 targets, 52 skipped, 0 masked, 0 errors.
+NOTE: Resolving any missing task queue dependencies
+
+Build Configuration:
+BB_VERSION           = "2.15.2"
+BUILD_SYS            = "x86_64-linux"
+NATIVELSBSTRING      = "ubuntu-24.04"
+TARGET_SYS           = "x86_64-poky-linux"
+MACHINE              = "qemux86-64"
+DISTRO               = "poky"
+DISTRO_VERSION       = "5.2.99+snapshot-e7423ae09e62a1f5f72391e61cad2381f917c113"
+TUNE_FEATURES        = "m64 x86-64-v3"
+TARGET_FPU           = ""
+meta
+meta-poky
+meta-yocto-bsp       = "master:e7423ae09e62a1f5f72391e61cad2381f917c113"
+
+NOTE: Fetching uninative binary shim http://downloads.yoctoproject.org/releases/uninative/4.9/x86_64-nativesdk-libc-4.9.tar.xz;sha256sum=4c03d1ed2b7b4e823aca4a1a23d8f2e322f1770fc10e859adcede5777aff4f3a (will check PREMIRRORS first)
+Sstate summary: Wanted 3337 Local 0 Mirrors 0 Missed 3337 Current 0 (0% match, 0% complete)###########################################################################                 | ETA:  0:00:00
+Initialising tasks: 100% |#############################################################################################################################################################| Time: 0:00:02
+NOTE: Executing Tasks
+WARNING: attr-native-2.5.2-r0 do_fetch: Failed to fetch URL https://download.savannah.gnu.org/releases/attr/attr-2.5.2.tar.gz, attempting MIRRORS if available
+WARNING: acl-native-2.3.2-r0 do_fetch: Failed to fetch URL https://download.savannah.gnu.org/releases/acl/acl-2.3.2.tar.gz, attempting MIRRORS if available
+WARNING: lzlib-native-1.15-r0 do_fetch: Failed to fetch URL https://download.savannah.gnu.org/releases/lzip/lzlib/lzlib-1.15.tar.gz, attempting MIRRORS if available
+WARNING: freetype-2.13.3-r0 do_fetch: Failed to fetch URL https://download.savannah.nongnu.org/releases/freetype/freetype-2.13.3.tar.xz, attempting MIRRORS if available
+ERROR: wayland-native-1.24.0-r0 do_configure: meson failed
+ERROR: wayland-native-1.24.0-r0 do_configure: Execution of '/home/fillingim/git/os/qemux/tmp/work/x86_64-linux/wayland-native/1.24.0/temp/run.do_configure.1664410' failed with exit code 1
+ERROR: Logfile of failure stored in: /home/fillingim/git/os/qemux/tmp/work/x86_64-linux/wayland-native/1.24.0/temp/log.do_configure.1664410
+Log data follows:
+| DEBUG: Executing python function extend_recipe_sysroot
+| NOTE: Direct dependencies are ['/home/fillingim/git/os/poky/meta/recipes-devtools/quilt/quilt-native_0.69.bb:do_populate_sysroot', 'virtual:native:/home/fillingim/git/os/poky/meta/recipes-core/expat/expat_2.7.1.bb:do_populate_sysroot', 'virtual:native:/home/fillingim/git/os/poky/meta/recipes-core/libxml/libxml2_2.14.5.bb:do_populate_sysroot', 'virtual:native:/home/fillingim/git/os/poky/meta/recipes-devtools/meson/meson_1.8.2.bb:do_populate_sysroot', 'virtual:native:/home/fillingim/git/os/poky/meta/recipes-devtools/ninja/ninja_1.13.1.bb:do_populate_sysroot', 'virtual:native:/home/fillingim/git/os/poky/meta/recipes-devtools/pkgconfig/pkgconfig_git.bb:do_populate_sysroot', 'virtual:native:/home/fillingim/git/os/poky/meta/recipes-devtools/python/python3_3.13.7.bb:do_populate_sysroot', 'virtual:native:/home/fillingim/git/os/poky/meta/recipes-extended/xz/xz_5.8.1.bb:do_populate_sysroot', 'virtual:native:/home/fillingim/git/os/poky/meta/recipes-support/libffi/libffi_3.5.1.bb:do_populate_sysroot']
+| NOTE: Installed into sysroot: []
+| NOTE: Skipping as already exists in sysroot: ['gettext-minimal-native', 'cmake-native', 'libtool-native', 'quilt-native', 'texinfo-dummy-native', 'openssl-native', 'expat-native', 'libxml2-native', 'ncurses-native', 'util-linux-libuuid-native', 'zlib-native', 'libedit-native', 'make-native', 'meson-native', 'ninja-native', 'perl-native', 'pkgconfig-native', 'python3-build-native', 'python3-flit-core-native', 'python3-installer-native', 'python3-packaging-native', 'python3-pyproject-hooks-native', 'python3-setuptools-native', 'python3-wheel-native', 'python3-native', 'bzip2-native', 'unzip-native', 'xz-native', 'zstd-native', 'gdbm-native', 'libffi-native', 're2c-native', 'sqlite3-native']
+| DEBUG: Python function extend_recipe_sysroot finished
+| DEBUG: Executing shell function do_configure
+| NOTE: Executing meson -Ddocumentation=false -Ddtd_validation=true...
+| The Meson build system
+| Version: 1.8.2
+| Source dir: /home/fillingim/git/os/qemux/tmp/work/x86_64-linux/wayland-native/1.24.0/sources/wayland-1.24.0
+| Build dir: /home/fillingim/git/os/qemux/tmp/work/x86_64-linux/wayland-native/1.24.0/build
+| Build type: native build
+| Project name: wayland
+| Project version: 1.24.0
+| C compiler for the host machine: gcc (gcc 13.3.0 "gcc (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0")
+| C linker for the host machine: gcc ld.bfd 2.42
+| Host machine cpu family: x86_64
+| Host machine cpu: x86_64
+| Compiler for C supports arguments -Wno-unused-parameter: YES
+| Compiler for C supports arguments -Wstrict-prototypes: YES
+| Compiler for C supports arguments -Wmissing-prototypes: YES
+| Compiler for C supports arguments -fvisibility=hidden: YES
+| Has header "sys/prctl.h" : YES
+| Has header "sys/procctl.h" : NO
+| Has header "sys/ucred.h" : NO
+| Checking for function "accept4" : YES
+| Checking for function "mkostemp" : YES
+| Checking for function "posix_fallocate" : YES
+| Checking for function "prctl" : YES
+| Checking for function "memfd_create" : YES
+| Checking for function "mremap" : YES
+| Checking for function "strndup" : YES
+| Header "string.h" has symbol "strndup" : NO
+| Checking whether type "struct xucred" has member "cr_pid" : NO
+| Found pkg-config: YES (/home/fillingim/git/os/qemux/tmp/work/x86_64-linux/wayland-native/1.24.0/recipe-sysroot-native/usr/bin/pkg-config-native) 0.29.2
+| Run-time dependency libffi found: YES 3.5.1
+| Header "sys/signalfd.h" has symbol "SFD_CLOEXEC" : YES
+| Header "sys/timerfd.h" has symbol "TFD_CLOEXEC" : YES
+| Header "time.h" has symbol "CLOCK_MONOTONIC" : YES
+| Checking for function "clock_gettime" : YES
+| Configuring config.h using configuration
+| Configuring wayland-version.h using configuration
+| Run-time dependency expat found: YES 2.7.1
+| Run-time dependency libxml-2.0 found: YES 2.14.5
+| Program embed.py found: YES (/home/fillingim/git/os/qemux/tmp/work/x86_64-linux/wayland-native/1.24.0/recipe-sysroot-native/usr/bin/nativepython3 /home/fillingim/git/os/qemux/tmp/work/x86_64-linux/wayland-native/1.24.0/sources/wayland-1.24.0/src/embed.py)
+| Library m found: YES
+| Run-time dependency threads found: YES
+| Program nm found: YES
+| Program wayland-egl-symbols-check found: YES (/home/fillingim/git/os/qemux/tmp/work/x86_64-linux/wayland-native/1.24.0/sources/wayland-1.24.0/egl/wayland-egl-symbols-check)
+| Library dl found: YES
+| Dependency threads found: YES unknown (cached)
+| Dependency threads found: YES unknown (cached)
+| Library dl found: YES
+| C++ compiler for the host machine: g++ (gcc 13.3.0 "g++ (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0")
+| C++ linker for the host machine: g++ ld.bfd 2.42
+| Program sed found: YES (/home/fillingim/git/os/qemux/tmp/hosttools/sed)
+| Program scanner-test.sh found: YES (/home/fillingim/git/os/qemux/tmp/work/x86_64-linux/wayland-native/1.24.0/sources/wayland-1.24.0/tests/scanner-test.sh)
+| Program scanner-test-gen.sh found: YES (/home/fillingim/git/os/qemux/tmp/work/x86_64-linux/wayland-native/1.24.0/sources/wayland-1.24.0/tests/scanner-test-gen.sh)
+| Build targets in project: 43
+| NOTICE: Future-deprecated features used:
+|  * 0.62.0: {'pkgconfig.generate variable for builtin directories'}
+|
+| wayland 1.24.0
+|
+|   User defined options
+|     Native files  : /home/fillingim/git/os/qemux/tmp/work/x86_64-linux/wayland-native/1.24.0/meson.native
+|     bindir        : bin
+|     buildtype     : plain
+|     datadir       : share
+|     documentation : false
+|     dtd_validation: true
+|     includedir    : include
+|     infodir       : share/info
+|     libdir        : lib
+|     libexecdir    : libexec
+|     localstatedir : /home/fillingim/git/os/qemux/tmp/work/x86_64-linux/wayland-native/1.24.0/recipe-sysroot-native/var
+|     mandir        : share/man
+|     prefix        : /home/fillingim/git/os/qemux/tmp/work/x86_64-linux/wayland-native/1.24.0/recipe-sysroot-native/usr
+|     sbindir       : sbin
+|     sharedstatedir: /home/fillingim/git/os/qemux/tmp/work/x86_64-linux/wayland-native/1.24.0/recipe-sysroot-native/com
+|     sysconfdir    : /home/fillingim/git/os/qemux/tmp/work/x86_64-linux/wayland-native/1.24.0/recipe-sysroot-native/etc
+|     wrap_mode     : nodownload
+|
+| Found ninja-1.13.1 at /home/fillingim/git/os/qemux/tmp/work/x86_64-linux/wayland-native/1.24.0/recipe-sysroot-native/usr/bin/ninja
+|
+| ERROR: Clock skew detected. File /home/fillingim/git/os/qemux/tmp/work/x86_64-linux/wayland-native/1.24.0/build/meson-private/coredata.dat has a time stamp 0.5550s in the future.
+|
+| A full log can be found at /home/fillingim/git/os/qemux/tmp/work/x86_64-linux/wayland-native/1.24.0/build/meson-logs/meson-log.txt
+| ERROR: meson failed
+| WARNING: exit code 1 from a shell command.
+ERROR: Task (virtual:native:/home/fillingim/git/os/poky/meta/recipes-graphics/wayland/wayland_1.24.0.bb:do_configure) failed with exit code '1'
+NOTE: Tasks Summary: Attempted 3596 tasks of which 0 didn't need to be rerun and 1 failed.
+
+Summary: 1 task failed:
+  virtual:native:/home/fillingim/git/os/poky/meta/recipes-graphics/wayland/wayland_1.24.0.bb:do_configure
+    log: /home/fillingim/git/os/qemux/tmp/work/x86_64-linux/wayland-native/1.24.0/temp/log.do_configure.1664410
+Summary: There were 5 WARNING messages.
+Summary: There were 2 ERROR messages, returning a non-zero exit code.
+
+real    86m19.454s
+user    0m22.429s
+sys     0m5.330s
+fillingim@SEMPRE-fillingim:~/git/os/qemux$
+fillingim@SEMPRE-fillingim:~/git/os/qemux$
+fillingim@SEMPRE-fillingim:~/git/os/qemux$
+fillingim@SEMPRE-fillingim:~/git/os/qemux$
+fillingim@SEMPRE-fillingim:~/git/os/qemux$ ls
+bitbake-cookerdaemon.log  cache  conf  downloads  sstate-cache  tmp
+fillingim@SEMPRE-fillingim:~/git/os/qemux$ cd ../
+fillingim@SEMPRE-fillingim:~/git/os$ rm -rf qemux/
+fillingim@SEMPRE-fillingim:~/git/os$ source ./poky/oe-init-build-env qemux
+You had no conf/local.conf file. This configuration file has therefore been
+created for you from /home/fillingim/git/os/poky/meta-poky/conf/templates/default/local.conf.sample
+You may wish to edit it to, for example, select a different MACHINE (target
+hardware).
+
+You had no conf/bblayers.conf file. This configuration file has therefore been
+created for you from /home/fillingim/git/os/poky/meta-poky/conf/templates/default/bblayers.conf.sample
+To add additional metadata layers into your configuration please add entries
+to conf/bblayers.conf.
+
+The Yocto Project has extensive documentation about OE including a reference
+manual which can be found at:
+    https://docs.yoctoproject.org
+
+For more information about OpenEmbedded see the website:
+    https://www.openembedded.org/
+
+This is the default build configuration for the Poky reference distribution.
+
+### Shell environment set up for builds. ###
+
+You can now run 'bitbake <target>'
+
+Common targets are:
+    core-image-minimal
+    core-image-full-cmdline
+    core-image-sato
+    core-image-weston
+    meta-toolchain
+    meta-ide-support
+
+You can also run generated qemu images with a command like 'runqemu qemux86-64'.
+
+Other commonly useful commands are:
+ - 'devtool' and 'recipetool' handle common recipe tasks
+ - 'bitbake-layers' handles common layer tasks
+ - 'oe-pkgdata-util' handles common target package tasks
+fillingim@SEMPRE-fillingim:~/git/os/qemux$
+fillingim@SEMPRE-fillingim:~/git/os/qemux$
+fillingim@SEMPRE-fillingim:~/git/os/qemux$ ls
+conf
+fillingim@SEMPRE-fillingim:~/git/os/qemux$ vim conf/local.conf
+fillingim@SEMPRE-fillingim:~/git/os/qemux$
+fillingim@SEMPRE-fillingim:~/git/os/qemux$
+fillingim@SEMPRE-fillingim:~/git/os/qemux$ time bitbake core-image-base
+WARNING: You are running bitbake under WSLv2, this works properly but you should optimize your VHDX file eventually to avoid running out of storage space
+Loading cache: 100% |                                                                                                                                                                 | ETA:  --:--:--
+Loaded 0 entries from dependency cache.
+Parsing recipes: 100% |################################################################################################################################################################| Time: 0:00:12
+Parsing of 943 .bb files complete (0 cached, 943 parsed). 1938 targets, 52 skipped, 0 masked, 0 errors.
+NOTE: Resolving any missing task queue dependencies
+
+Build Configuration:
+BB_VERSION           = "2.15.2"
+BUILD_SYS            = "x86_64-linux"
+NATIVELSBSTRING      = "ubuntu-24.04"
+TARGET_SYS           = "x86_64-poky-linux"
+MACHINE              = "qemux86-64"
+DISTRO               = "poky"
+DISTRO_VERSION       = "5.2.99+snapshot-e7423ae09e62a1f5f72391e61cad2381f917c113"
+TUNE_FEATURES        = "m64 x86-64-v3"
+TARGET_FPU           = ""
+meta
+meta-poky
+meta-yocto-bsp       = "master:e7423ae09e62a1f5f72391e61cad2381f917c113"
+
+NOTE: Fetching uninative binary shim http://downloads.yoctoproject.org/releases/uninative/4.9/x86_64-nativesdk-libc-4.9.tar.xz;sha256sum=4c03d1ed2b7b4e823aca4a1a23d8f2e322f1770fc10e859adcede5777aff4f3a (will check PREMIRRORS first)
+Sstate summary: Wanted 3337 Local 0 Mirrors 0 Missed 3337 Current 0 (0% match, 0% complete)###########################################################################                 | ETA:  0:00:00
+Initialising tasks: 100% |#############################################################################################################################################################| Time: 0:00:02
+NOTE: Executing Tasks
+WARNING: freetype-2.13.3-r0 do_fetch: Failed to fetch URL https://download.savannah.nongnu.org/releases/freetype/freetype-2.13.3.tar.xz, attempting MIRRORS if available
+ERROR: fribidi-native-1.0.16-r0 do_configure: meson failed
+ERROR: fribidi-native-1.0.16-r0 do_configure: Execution of '/home/fillingim/git/os/qemux/tmp/work/x86_64-linux/fribidi-native/1.0.16/temp/run.do_configure.2956329' failed with exit code 1
+ERROR: Logfile of failure stored in: /home/fillingim/git/os/qemux/tmp/work/x86_64-linux/fribidi-native/1.0.16/temp/log.do_configure.2956329
+Log data follows:
+| DEBUG: Executing python function extend_recipe_sysroot
+| NOTE: Direct dependencies are ['/home/fillingim/git/os/poky/meta/recipes-devtools/quilt/quilt-native_0.69.bb:do_populate_sysroot', 'virtual:native:/home/fillingim/git/os/poky/meta/recipes-devtools/meson/meson_1.8.2.bb:do_populate_sysroot', 'virtual:native:/home/fillingim/git/os/poky/meta/recipes-devtools/ninja/ninja_1.13.1.bb:do_populate_sysroot', 'virtual:native:/home/fillingim/git/os/poky/meta/recipes-devtools/pkgconfig/pkgconfig_git.bb:do_populate_sysroot', 'virtual:native:/home/fillingim/git/os/poky/meta/recipes-devtools/python/python3_3.13.7.bb:do_populate_sysroot', 'virtual:native:/home/fillingim/git/os/poky/meta/recipes-extended/xz/xz_5.8.1.bb:do_populate_sysroot']
+| NOTE: Installed into sysroot: []
+| NOTE: Skipping as already exists in sysroot: ['gettext-minimal-native', 'cmake-native', 'libtool-native', 'quilt-native', 'texinfo-dummy-native', 'openssl-native', 'expat-native', 'ncurses-native', 'util-linux-libuuid-native', 'zlib-native', 'libedit-native', 'make-native', 'meson-native', 'ninja-native', 'perl-native', 'pkgconfig-native', 'python3-build-native', 'python3-flit-core-native', 'python3-installer-native', 'python3-packaging-native', 'python3-pyproject-hooks-native', 'python3-setuptools-native', 'python3-wheel-native', 'python3-native', 'bzip2-native', 'unzip-native', 'xz-native', 'zstd-native', 'gdbm-native', 'libffi-native', 're2c-native', 'sqlite3-native']
+| DEBUG: Python function extend_recipe_sysroot finished
+| DEBUG: Executing shell function do_configure
+| NOTE: Executing meson ...
+| The Meson build system
+| Version: 1.8.2
+| Source dir: /home/fillingim/git/os/qemux/tmp/work/x86_64-linux/fribidi-native/1.0.16/sources/fribidi-1.0.16
+| Build dir: /home/fillingim/git/os/qemux/tmp/work/x86_64-linux/fribidi-native/1.0.16/build
+| Build type: native build
+| Project name: fribidi
+| Project version: 1.0.16
+| C compiler for the host machine: gcc (gcc 13.3.0 "gcc (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0")
+| C linker for the host machine: gcc ld.bfd 2.42
+| Host machine cpu family: x86_64
+| Host machine cpu: x86_64
+| Compiler for C supports arguments -ansi: YES
+| Checking for function "memmove" : YES
+| Checking for function "memset" : YES
+| Checking for function "strdup" : YES
+| Has header "stdlib.h" : YES
+| Has header "string.h" : YES
+| Has header "memory.h" : YES
+| Has header "strings.h" : YES
+| Has header "sys/times.h" : YES
+| Has header "strings.h" : YES (cached)
+| Configuring config.h using configuration
+| Has header "stdlib.h" : YES (cached)
+| Has header "string.h" : YES (cached)
+| Has header "strings.h" : YES (cached)
+| Checking for size of "int" : 4
+| Configuring fribidi-config.h using configuration
+| Program test-runner.py found: YES (/home/fillingim/git/os/qemux/tmp/work/x86_64-linux/fribidi-native/1.0.16/sources/fribidi-1.0.16/test/test-runner.py)
+| Program python3 found: YES (/home/fillingim/git/os/qemux/tmp/work/x86_64-linux/fribidi-native/1.0.16/recipe-sysroot-native/usr/bin/nativepython3)
+| Message: Have pre-generated man pages: true
+| Found pkg-config: YES (/home/fillingim/git/os/qemux/tmp/work/x86_64-linux/fribidi-native/1.0.16/recipe-sysroot-native/usr/bin/pkg-config-native) 0.29.2
+| Build targets in project: 21
+|
+| fribidi 1.0.16
+|
+|   User defined options
+|     Native files  : /home/fillingim/git/os/qemux/tmp/work/x86_64-linux/fribidi-native/1.0.16/meson.native
+|     bindir        : bin
+|     buildtype     : plain
+|     datadir       : share
+|     includedir    : include
+|     infodir       : share/info
+|     libdir        : lib
+|     libexecdir    : libexec
+|     localstatedir : /home/fillingim/git/os/qemux/tmp/work/x86_64-linux/fribidi-native/1.0.16/recipe-sysroot-native/var
+|     mandir        : share/man
+|     prefix        : /home/fillingim/git/os/qemux/tmp/work/x86_64-linux/fribidi-native/1.0.16/recipe-sysroot-native/usr
+|     sbindir       : sbin
+|     sharedstatedir: /home/fillingim/git/os/qemux/tmp/work/x86_64-linux/fribidi-native/1.0.16/recipe-sysroot-native/com
+|     sysconfdir    : /home/fillingim/git/os/qemux/tmp/work/x86_64-linux/fribidi-native/1.0.16/recipe-sysroot-native/etc
+|     wrap_mode     : nodownload
+|
+| Found ninja-1.13.1 at /home/fillingim/git/os/qemux/tmp/work/x86_64-linux/fribidi-native/1.0.16/recipe-sysroot-native/usr/bin/ninja
+|
+| ERROR: Clock skew detected. File /home/fillingim/git/os/qemux/tmp/work/x86_64-linux/fribidi-native/1.0.16/build/meson-private/coredata.dat has a time stamp 0.7211s in the future.
+|
+| A full log can be found at /home/fillingim/git/os/qemux/tmp/work/x86_64-linux/fribidi-native/1.0.16/build/meson-logs/meson-log.txt
+| ERROR: meson failed
+| WARNING: exit code 1 from a shell command.
+ERROR: Task (virtual:native:/home/fillingim/git/os/poky/meta/recipes-support/fribidi/fribidi_1.0.16.bb:do_configure) failed with exit code '1'
+NOTE: Tasks Summary: Attempted 3886 tasks of which 0 didn't need to be rerun and 1 failed.
+
+Summary: 1 task failed:
+  virtual:native:/home/fillingim/git/os/poky/meta/recipes-support/fribidi/fribidi_1.0.16.bb:do_configure
+    log: /home/fillingim/git/os/qemux/tmp/work/x86_64-linux/fribidi-native/1.0.16/temp/log.do_configure.2956329
+Summary: There were 2 WARNING messages.
+Summary: There were 2 ERROR messages, returning a non-zero exit code.
+
+real    97m28.530s
+user    0m24.226s
+sys     0m5.744s
+fillingim@SEMPRE-fillingim:~/git/os/qemux$ time bitbake core-image-minimal
+Loading cache: 100% |                                                                                                                                                                 | ETA:  --:--:--
+Loaded 0 entries from dependency cache.
+Parsing recipes: 100% |################################################################################################################################################################| Time: 0:00:10
+Parsing of 943 .bb files complete (0 cached, 943 parsed). 1938 targets, 52 skipped, 0 masked, 0 errors.
+NOTE: Resolving any missing task queue dependencies
+
+Build Configuration:
+BB_VERSION           = "2.15.2"
+BUILD_SYS            = "x86_64-linux"
+NATIVELSBSTRING      = "universal"
+TARGET_SYS           = "x86_64-poky-linux"
+MACHINE              = "qemux86-64"
+DISTRO               = "poky"
+DISTRO_VERSION       = "5.2.99+snapshot-e7423ae09e62a1f5f72391e61cad2381f917c113"
+TUNE_FEATURES        = "m64 x86-64-v3"
+TARGET_FPU           = ""
+meta
+meta-poky
+meta-yocto-bsp       = "master:e7423ae09e62a1f5f72391e61cad2381f917c113"
+
+Sstate summary: Wanted 834 Local 9 Mirrors 0 Missed 825 Current 1156 (1% match, 58% complete)#########################################################################                 | ETA:  0:00:00
+Initialising tasks: 100% |#############################################################################################################################################################| Time: 0:00:01
+NOTE: Executing Tasks
+Setscene tasks: 1990 of 1990
+Currently  1 running tasks (4180 of 4256)  98% |##################################################################################################################################################   |
+0: clang-native-20.1.8-r0 do_compile - 54m40s (pid 4052672)  39% |###################################################                                                                                |
