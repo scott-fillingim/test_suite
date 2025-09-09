@@ -15,10 +15,13 @@ else
    # Count the number of logs seen
    ver=`       grep -o "BB_VERSION" $in_file | wc -l`
    tasks=`     grep -o "Tasks"      $in_file | wc -l`
+   errors=`    grep -orni "error"   $in_file | wc -l`
+   fail=`      grep -orni "fail"    $in_file | wc -l`
+
 
    # Find the distro
    distro=`    grep -e "MACHINE"    $in_file | tail -n 1 | awk '{print $3}' | sed 's/"//g' `
-   
+
    echo ""                             | tee -a $out_file
    echo "Scanning file: $in_file"      | tee -a $out_file
    echo ""                             | tee -a $out_file
@@ -26,7 +29,9 @@ else
    echo "BB_VERSION: " $ver            | tee -a $out_file
    echo "Tasks:      " $tasks          | tee -a $out_file
    echo "Distro:     " $distro         | tee -a $out_file
-   
+   echo "Errors:     " $errors         | tee -a $out_file
+   echo "Failures:   " $fail           | tee -a $out_file
+
    echo ""                             | tee -a $out_file
 
 
